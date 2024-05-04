@@ -1,0 +1,35 @@
+﻿@*// NOMBRE APELLIDOS: MARIO ANDRÉS VACA MORA
+// PARALELO: 3228
+// SI – INTEGRACIÓN DE SISTEMAS
+// FECHA: 04/05/2024
+// PRÁCTICA No. # 06*@
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main class="container">
+    <h1 class="mt-5">Sistema de Ventas</h1>
+
+    <h3 class="mt-4">Controladores</h3>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="@Url.Action("Index", "Productos")">Productos</a>
+        </li>
+        <li class="list-group-item">
+            <a href="@Url.Action("Index", "Categorias")">Categorías</a>
+        </li>
+        <li class="list-group-item">
+            <a href="@Url.Action("Index", "Clientes")">Clientes</a>
+        </li>
+        <li class="list-group-item">
+            <a href="@Url.Action("Index", "Facturas")">Facturas</a>
+        </li>
+        <li class="list-group-item">
+            <a href="@Url.Action("Index", "DetalleFacturas")">Detalle Facturas</a>
+        </li>
+        <li class="list-group-item">
+            <a href="@Url.Action("ObtenerDetalleFactura", "StoreProcedure")">Store Procedure</a>
+        </li>
+    </ul>
+</main>

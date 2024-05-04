@@ -1,0 +1,60 @@
+﻿@*// NOMBRE APELLIDOS: MARIO ANDRÉS VACA MORA
+// PARALELO: 3228
+// SI – INTEGRACIÓN DE SISTEMAS
+// FECHA: 04/05/2024
+// PRÁCTICA No. # 06*@
+
+@model List<PracticaN06_IS_Cliente_Razor.Models.StoreProcedure>
+
+@{
+    ViewBag.Title = "Detalles de la Factura";
+}
+
+<h2>Buscar Detalles de la Factura</h2>
+
+@using (Html.BeginForm("ObtenerDetalleFactura", "StoreProcedure", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.Label("ID de la Factura:", htmlAttributes: new { @class = "control-label" })
+        @Html.TextBox("id", null, new { @class = "form-control", type = "number", required = "required", min = "1" })
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+}
+
+@if (Model != null && Model.Any())
+{
+    <h2>Detalles de la Factura</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>IVA</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detalle in Model)
+            {
+                <tr>
+                    <td>@detalle.Producto</td>
+                    <td>@detalle.Cantidad</td>
+                    <td>@detalle.PrecioUnitario</td>
+                    <td>@detalle.IVA</td>
+                    <td>@detalle.Subtotal</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model != null)
+{
+    <p>No se encontraron detalles de la factura para el ID proporcionado.</p>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p class="text-danger">@ViewBag.ErrorMessage</p>
+}

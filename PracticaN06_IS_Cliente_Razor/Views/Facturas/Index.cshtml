@@ -1,0 +1,47 @@
+﻿@*// NOMBRE APELLIDOS: MARIO ANDRÉS VACA MORA
+// PARALELO: 3228
+// SI – INTEGRACIÓN DE SISTEMAS
+// FECHA: 04/05/2024
+// PRÁCTICA No. # 06*@
+
+@model IEnumerable<PracticaN06_IS_Cliente_Razor.Models.Factura>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCliente)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idCliente)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { numero = item.numero }) |
+                @Html.ActionLink("Details", "Details", new { numero = item.numero }) |
+                @Html.ActionLink("Delete", "Delete", new { numero = item.numero })
+            </td>
+        </tr>
+    }
+
+</table>
